@@ -2479,7 +2479,7 @@
 				}
 
 			ul.actions.fit {
-				display: table;
+				display: flex;
 				margin-left: -1em;
 				padding: 0;
 				table-layout: fixed;
@@ -2928,13 +2928,13 @@
 
 	.navPanelToggle {
 		text-decoration: none;
-		text-decoration: none;
-		height: 100%;
-		left: 0;
-		position: absolute;
-		top: 0;
-		width: 100%;
 		display: none;
+		position: absolute;
+		top: 0.5em;
+		left: 0.5em;
+		width: 3.5em;
+		height: 2.25em;
+		z-index: 9999; 
 	}
 
 		.navPanelToggle:before {
@@ -2970,27 +2970,21 @@
 		}
 
 	#navPanel {
-		-moz-transform: translateX(-20em);
-		-webkit-transform: translateX(-20em);
-		-ms-transform: translateX(-20em);
-		transform: translateX(-20em);
-		-moz-transition: -moz-transform 0.5s ease, visibility 0.5s;
-		-webkit-transition: -webkit-transform 0.5s ease, visibility 0.5s;
-		-ms-transition: -ms-transform 0.5s ease, visibility 0.5s;
-		transition: transform 0.5s ease, visibility 0.5s;
-		-webkit-overflow-scrolling: touch;
-		visibility: hidden;
-		overflow-y: auto;
 		position: fixed;
-		left: 0;
 		top: 0;
-		background: #222;
-		color: #fff;
+		left: 0;
+		width: 12em; /* Было 16em или больше – уменьшаем */
+		max-width: 60vw; /* ещё один ограничитель */
 		height: 100%;
-		max-width: 80%;
-		width: 20em;
-		padding: 0.5em 1.25em;
-		text-transform: uppercase;
+		background: rgba(34, 34, 34, 0.95); /* чуть прозрачный для теста */
+		color: #fff;
+		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
+		padding: 1em;
+		z-index: 9999;
+		transform: translateX(-100%);
+		transition: transform 0.3s ease;
+		pointer-events: none; /* чтобы в скрытом состоянии не мешал */
 	}
 
 		#navPanel ul {
@@ -3082,6 +3076,7 @@
 			transform: translateX(0);
 			box-shadow: 0 0 1.5em 0 rgba(0, 0, 0, 0.2);
 			visibility: visible;
+			display: block;
 		}
 
 /* Banner */
@@ -3139,7 +3134,7 @@
 
 		}
 
-		@media screen and (max-width: 736px) {
+		/* @media screen and (max-width: 736px) {
 
 			#banner {
 				padding: 6em 2em 6em 2em;
@@ -3155,9 +3150,9 @@
 
 				#banner p {
 					font-size: 1.25em;
-				}
+				} */
 
-		}
+		
 
 		@media screen and (max-width: 480px) {
 
